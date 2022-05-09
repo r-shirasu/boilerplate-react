@@ -1,28 +1,26 @@
-var path = require('path');
+import { join } from 'path';
 
-module.exports = {
-  entry: './src/index.tsx',
-  output: {
-    path: `${__dirname}/dist`,
-    filename: 'main.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-      },
-    ],
-  },
-  mode: 'development',
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx'],
-  },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'dist'),
+export const entry = './src/index.tsx';
+export const output = {
+  path: `${__dirname}/dist`,
+  filename: 'main.js',
+};
+export const module = {
+  rules: [
+    {
+      test: /\.tsx?$/,
+      use: 'ts-loader',
     },
-    compress: true,
-    port: 3000,
+  ],
+};
+export const mode = 'development';
+export const resolve = {
+  extensions: ['.ts', '.tsx', '.js', '.jsx'],
+};
+export const devServer = {
+  static: {
+    directory: join(__dirname, 'dist'),
   },
+  compress: true,
+  port: 3000,
 };
